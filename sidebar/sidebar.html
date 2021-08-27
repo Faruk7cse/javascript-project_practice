@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sidebar</title>
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+  <!-- styles -->
+  <style>
+    .sidebar-toggle {
+      position: fixed;
+      right: 3rem;
+      top: 2rem;
+      background-color: transparent;
+      border: transparent;
+      color: aqua;
+      font-size: 3rem;
+      cursor: pointer;
+      transition: all 0.3s linear;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .sidebar-toggle:hover {
+      color: rgb(33, 199, 199);
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.3);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+
+    }
+
+    .close-btn {
+      color: rgb(192, 15, 15);
+      background-color: transparent;
+      border: transparent;
+      font-size: 1.7rem;
+      transition: all 0.3s linear;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: rgb(190, 92, 92);
+      transform: rotate(360deg);
+    }
+
+    .logo {
+      height: 40px;
+      justify-self: center;
+
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+
+    .links a {
+      display: block;
+      font-size: 1.5rem;
+      text-transform: capitalize;
+      padding: 1rem 1.5rem;
+      color: gray;
+      transition: all 0.3s linear;
+      text-decoration: none;
+
+    }
+
+    .links a:hover {
+      background: hsl(210, 31%, 80%);
+      color: hsl(210, 22%, 49%);
+      padding-left: 1.75rem;
+    }
+
+    .social-icons {
+      justify-self: center;
+      display: flex;
+      padding-bottom: 2rem;
+    }
+
+    .social-icons a {
+      font-size: 1.5rem;
+      margin: 0 0.5rem;
+      color: hsl(210, 22%, 49%);
+      transition: all 0.3s linear;
+    }
+
+    .social-icons a:hover {
+      color: aqua;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      row-gap: 1rem;
+      box-shadow: hsl(360, 67%, 44%);
+      transition: all 0.3s linear;
+      transform: translate(-100%);
+    }
+
+    .show-sidebar {
+      transform: translate(0);
+    }
+
+    @media screen and (min-width: 676px) {
+      .sidebar {
+        width: 400px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="sidebar-toggle">
+    <i class="fas fa-bars"></i>
+  </button>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h1 class="logo">Sidebar</h1>
+      <button class="close-btn"><i class="fas fa-times"></i></button>
+    </div>
+    <!-- links -->
+    <ul class="links">
+      <li>
+        <a href="index.html">home</a>
+      </li>
+      <li>
+        <a href="about.html">about</a>
+      </li>
+      <li>
+        <a href="projects.html">projects</a>
+      </li>
+      <li>
+        <a href="contact.html">contact</a>
+      </li>
+    </ul>
+    <!-- social media -->
+    <ul class="social-icons">
+      <li>
+        <a href="https://www.twitter.com">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.twitter.com">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.twitter.com">
+          <i class="fab fa-behance"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.twitter.com">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.twitter.com">
+          <i class="fab fa-sketch"></i>
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <!-- javascript -->
+  <script>
+    const toggleBtn = document.querySelector(".sidebar-toggle");
+    const closeBtn = document.querySelector(".close-btn");
+    const sidebar = document.querySelector(".sidebar");
+
+    toggleBtn.addEventListener("click", function () {
+      // if (sidebar.classList.contains("show-sidebar")) {
+      //   sidebar.classList.remove("show-sidebar");
+      // } else {
+      //   sidebar.classList.add("show-sidebar");
+      // }
+      sidebar.classList.toggle("show-sidebar");
+    });
+
+    closeBtn.addEventListener("click", function () {
+      sidebar.classList.remove("show-sidebar");
+    });
+  </script>
+</body>
+
+</html>
